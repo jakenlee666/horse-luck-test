@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 微信专用meta标签 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- X5内核专用 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <!-- QQ浏览器专用 -->
+    <meta name="imagemode" content="force">
+    <meta name="screen-orientation" content="portrait">
+    
+    <title>2026丙午马年运势测试</title>
+    <style>
+        /* 基础重置 - 微信兼容 */
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #8B0000;
+            color: #333333;
+            line-height: 1.5;
+            padding: 15px;
+            min-height: 100vh;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 20px;
+            border: 3px solid #FFD700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #8B0000;
+        }
+        
+        .header h1 {
+            color: #8B0000;
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .horse-icon {
+            font-size: 40px;
+            margin: 10px 0;
+            display: block;
+        }
+        
+        .question-container {
+            margin-bottom: 20px;
+        }
+        
+        .question {
+            background-color: #FFF9E6;
+            border-left: 4px solid #D4AF37;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .question h3 {
+            color: #8B0000;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .options {
+            display: block;
+        }
+        
+        .option {
+            display: block;
+            margin-bottom: 8px;
+            padding: 12px;
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 6px;
+            cursor: pointer;
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #FFF0F0;
+            border-color: #8B0000;
+        }
+        
+        .option.selected {
+            background-color: #FFE4E1;
+            border-color: #8B0000;
+        }
+        
+        .option input {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .option label {
+            vertical-align: middle;
+            cursor: pointer;
+            display: inline-block;
+            width: 90%;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background-color: #8B0000;
+            color: #FFFFFF;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            display: inline-block;
+            width: 80%;
+            max-width: 300px;
+            -webkit-transition: background-color 0.3s;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #B22222;
+        }
+        
+        .btn:disabled {
+            background-color: #CCCCCC;
+            cursor: not-allowed;
+        }
+        
+        .result-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #FFF9E6;
+            border-radius: 10px;
+            border: 2px solid #D4AF37;
+        }
+        
+        .result-container h2 {
+            color: #8B0000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid #FFD700;
+            padding-bottom: 8px;
+        }
+        
+        .luck-dimension {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dimension-icon {
+            float: left;
+            font-size: 24px;
+            margin-right: 12px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .dimension-info {
+            overflow: hidden;
+        }
+        
+        .dimension-title {
+            margin-bottom: 6px;
+            overflow: hidden;
+        }
+        
+        .dimension-name {
+            font-weight: bold;
+            color: #8B0000;
+            font-size: 15px;
+            float: left;
+        }
+        
+        .dimension-score {
+            font-weight: bold;
+            color: #D4AF37;
+            float: right;
+        }
+        
+        .dimension-bar {
+            height: 8px;
+            background-color: #EEEEEE;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            overflow: hidden;
+        }
+        
+        .dimension-fill {
+            height: 100%;
+            background-color: #FFD700;
+            border-radius: 4px;
+        }
+        
+        .dimension-desc {
+            color: #666666;
+            font-size: 13px;
+        }
+        
+        .overall-luck {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #8B0000;
+            color: #FFFFFF;
+            border-radius: 8px;
+        }
+        
+        .overall-luck h3 {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .luck-tag {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #8B0000;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        
+        .overall-desc {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .share-section {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #FFD700;
+        }
+        
+        .share-btn, .restart-btn {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            display: inline-block;
+            width: 45%;
+            max-width: 140px;
+        }
+        
+        .restart-btn {
+            background-color: #2196F3;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777777;
+            font-size: 12px;
+            padding-top: 15px;
+            border-top: 1px solid #EEEEEE;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #EEEEEE;
+            border-radius: 3px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #8B0000;
+            width: 0%;
+            border-radius: 3px;
+        }
+        
+        /* 简单提示框样式 */
+        .simple-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10000;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+            border: 2px solid #FFD700;
+            font-size: 15px;
+        }
+        
+        .simple-alert button {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 20px;
+            color: #8B0000;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* 移动端优化 */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .question h3 {
+                font-size: 15px;
+            }
+            
+            .btn {
+                width: 90%;
+                padding: 12px 20px;
+            }
+            
+            .share-btn, .restart-btn {
+                width: 90%;
+                max-width: 200px;
+                margin: 5px auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="horse-icon">🐎</span>
+            <h1>2026丙午马年运势测试</h1>
+            <p>2026年是农历丙午年，生肖属马。快来测测你的马年运势如何，哪个方面会马到成功？</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <div class="question-container" id="questionContainer">
+            <!-- 问题将在这里动态生成 -->
+        </div>
+        
+        <div class="button-container">
+            <button class="btn" id="submitBtn" disabled>提交答案，查看我的马年运势</button>
+        </div>
+        
+        <div class="result-container" id="resultContainer">
+            <h2>您的专属马年运势报告</h2>
+            <div id="luckDetails">
+                <!-- 运势详情将在这里动态生成 -->
+            </div>
+            <div class="overall-luck" id="overallLuck">
+                <!-- 总体运势将在这里动态生成 -->
+            </div>
+            <div class="share-section">
+                <button class="share-btn" id="shareBtn">分享给朋友</button>
+                <button class="restart-btn" id="restartBtn">重新测试</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>本测试仅供娱乐，结果仅供参考。祝您丙午马年马到成功，万事如意！</p>
+            <p>© 2026 马年运势测试 | 数据不会保存，请放心测试</p>
+        </div>
+    </div>
+
+    <script>
+        // 问题数据 - 使用简单结构
+        var questions = [
+            {
+                text: "马年伊始，你更倾向于如何制定计划？",
+                options: [
+                    { text: "A. 制定详细路线图，稳步推进", scores: { career: 3, wealth: 1, health: 1 } },
+                    { text: "B. 先定一个小目标，比如先赚一个亿", scores: { career: 1, wealth: 3, love: 1 } },
+                    { text: "C. 随遇而安，相信船到桥头自然直", scores: { love: 2, health: 3 } }
+                ]
+            },
+            {
+                text: "面对马年的新机遇，你的第一反应是？",
+                options: [
+                    { text: "A. 立即行动，抢占先机", scores: { career: 3, health: -1 } },
+                    { text: "B. 谨慎分析，评估风险与收益", scores: { wealth: 3, career: 1 } },
+                    { text: "C. 与朋友商量，听听大家的意见", scores: { love: 2, career: 1 } }
+                ]
+            },
+            {
+                text: "马年你最希望在哪方面有所突破？",
+                options: [
+                    { text: "A. 事业/学业更上一层楼", scores: { career: 3 } },
+                    { text: "B. 财运亨通，收入翻番", scores: { wealth: 3 } },
+                    { text: "C. 感情甜蜜，家庭和睦", scores: { love: 3 } }
+                ]
+            },
+            {
+                text: "你会如何安排马年的休闲时间？",
+                options: [
+                    { text: "A. 学习新技能，自我提升", scores: { career: 2, health: 1 } },
+                    { text: "B. 旅行放松，开阔眼界", scores: { health: 3, wealth: -1 } },
+                    { text: "C. 陪伴家人朋友，享受温馨时光", scores: { love: 3, health: 1 } }
+                ]
+            },
+            {
+                text: "如果马年遇到挫折，你会如何应对？",
+                options: [
+                    { text: "A. 越挫越勇，寻找新方法", scores: { career: 2, health: -1 } },
+                    { text: "B. 暂时休息，调整状态再出发", scores: { health: 3 } },
+                    { text: "C. 寻求帮助，借助他人力量", scores: { love: 2, career: 1 } }
+                ]
+            }
+        ];
+
+        // 运势维度配置
+        var dimensions = [
+            { id: 'career', name: '事业运势', icon: '💼' },
+            { id: 'wealth', name: '财富运势', icon: '💰' },
+            { id: 'love', name: '感情运势', icon: '❤️' },
+            { id: 'health', name: '健康运势', icon: '🏃' }
+        ];
+
+        // 当前状态
+        var currentAnswers = [];
+        var userScores = { career: 0, wealth: 0, love: 0, health: 0 };
+        
+        // 初始化数组
+        for (var i = 0; i < questions.length; i++) {
+            currentAnswers[i] = null;
+        }
+
+        // DOM元素
+        var questionContainer = document.getElementById('questionContainer');
+        var submitBtn = document.getElementById('submitBtn');
+        var resultContainer = document.getElementById('resultContainer');
+        var luckDetails = document.getElementById('luckDetails');
+        var overallLuck = document.getElementById('overallLuck');
+        var progressFill = document.getElementById('progressFill');
+        var shareBtn = document.getElementById('shareBtn');
+        var restartBtn = document.getElementById('restartBtn');
+
+        // 初始化问题
+        function initializeQuestions() {
+            questionContainer.innerHTML = '';
+            
+            for (var i = 0; i < questions.length; i++) {
+                var question = questions[i];
+                var questionElement = document.createElement('div');
+                questionElement.className = 'question';
+                
+                var optionsHtml = '';
+                for (var j = 0; j < question.options.length; j++) {
+                    optionsHtml += '<div class="option" data-q="' + i + '" data-o="' + j + '">' +
+                                   '<input type="radio" id="q' + i + '_o' + j + '" name="q' + i + '">' +
+                                   '<label for="q' + i + '_o' + j + '">' + question.options[j].text + '</label>' +
+                                   '</div>';
+                }
+                
+                questionElement.innerHTML = '<h3>' + (i + 1) + '. ' + question.text + '</h3>' +
+                                           '<div class="options">' + optionsHtml + '</div>';
+                
+                questionContainer.appendChild(questionElement);
+            }
+            
+            // 添加选项选择事件
+            var optionElements = document.querySelectorAll('.option');
+            for (var k = 0; k < optionElements.length; k++) {
+                optionElements[k].addEventListener('click', function() {
+                    var questionIndex = parseInt(this.getAttribute('data-q'));
+                    var optionIndex = parseInt(this.getAttribute('data-o'));
+                    
+                    // 取消同问题的其他选择
+                    var sameQuestionOptions = document.querySelectorAll('.option[data-q="' + questionIndex + '"]');
+                    for (var m = 0; m < sameQuestionOptions.length; m++) {
+                        sameQuestionOptions[m].classList.remove('selected');
+                        sameQuestionOptions[m].querySelector('input').checked = false;
+                    }
+                    
+                    // 选中当前选项
+                    this.classList.add('selected');
+                    this.querySelector('input').checked = true;
+                    
+                    // 保存答案
+                    currentAnswers[questionIndex] = optionIndex;
+                    
+                    // 更新提交按钮状态
+                    updateSubmitButton();
+                    
+                    // 更新进度条
+                    updateProgressBar();
+                });
+            }
+        }
+
+        // 更新提交按钮状态
+        function updateSubmitButton() {
+            var allAnswered = true;
+            for (var i = 0; i < currentAnswers.length; i++) {
+                if (currentAnswers[i] === null) {
+                    allAnswered = false;
+                    break;
+                }
+            }
+            submitBtn.disabled = !allAnswered;
+        }
+
+        // 更新进度条
+        function updateProgressBar() {
+            var answeredCount = 0;
+            for (var i = 0; i < currentAnswers.length; i++) {
+                if (currentAnswers[i] !== null) {
+                    answeredCount++;
+                }
+            }
+            var progress = (answeredCount / questions.length) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        // 计算运势
+        function calculateLuck() {
+            // 重置分数
+            userScores = { career: 0, wealth: 0, love: 0, health: 0 };
+            
+            // 计算每个维度的总分
+            for (var i = 0; i < currentAnswers.length; i++) {
+                var answerIndex = currentAnswers[i];
+                if (answerIndex !== null) {
+                    var optionScores = questions[i].options[answerIndex].scores;
+                    
+                    // 累加各维度分数
+                    for (var dimension in optionScores) {
+                        if (optionScores.hasOwnProperty(dimension) && userScores.hasOwnProperty(dimension)) {
+                            userScores[dimension] += optionScores[dimension];
+                        }
+                    }
+                }
+            }
+            
+            // 确保分数不为负数
+            for (var dim in userScores) {
+                if (userScores[dim] < 0) {
+                    userScores[dim] = 0;
+                }
+            }
+            
+            return userScores;
+        }
+
+        // 获取运势评级
+        function getRating(score) {
+            if (score >= 8) return '上上签 🚀';
+            if (score >= 6) return '中上签 👍';
+            if (score >= 4) return '中平签 ➡️';
+            return '继续努力 💪';
+        }
+
+        // 显示结果
+        function displayResults() {
+            // 计算运势
+            var scores = calculateLuck();
+            
+            // 生成各维度运势详情
+            var detailsHtml = '';
+            for (var i = 0; i < dimensions.length; i++) {
+                var dimension = dimensions[i];
+                var score = scores[dimension.id];
+                var rating = getRating(score);
+                var percentage = Math.min(score * 10, 100);
+                
+                detailsHtml += '<div class="luck-dimension">' +
+                              '<div class="dimension-icon">' + dimension.icon + '</div>' +
+                              '<div class="dimension-info">' +
+                              '<div class="dimension-title">' +
+                              '<span class="dimension-name">' + dimension.name + '</span>' +
+                              '<span class="dimension-score">' + rating + '</span>' +
+                              '</div>' +
+                              '<div class="dimension-bar">' +
+                              '<div class="dimension-fill" style="width:' + percentage + '%;"></div>' +
+                              '</div>' +
+                              '<div class="dimension-desc">得分：' + score + '</div>' +
+                              '</div>' +
+                              '</div>';
+            }
+            
+            luckDetails.innerHTML = detailsHtml;
+            
+            // 生成总体运势
+            var totalScore = 0;
+            var scoreCount = 0;
+            for (var dim in scores) {
+                totalScore += scores[dim];
+                scoreCount++;
+            }
+            var averageScore = totalScore / scoreCount;
+            
+            var overallTitle = '';
+            var overallDesc = '';
+            
+            if (averageScore >= 7) {
+                overallTitle = '上上签·大吉';
+                overallDesc = '丙午火马，气势如虹。今年你就像踏上青云路的骏马，各方面运势都相当不错！';
+            } else if (averageScore >= 5) {
+                overallTitle = '中上签·吉';
+                overallDesc = '马年运势良好，稳中有进。像稳健的骏马一样，一步一个脚印，定能收获满满！';
+            } else if (averageScore >= 3) {
+                overallTitle = '中平签·平';
+                overallDesc = '马年运势平稳，适合打好基础。记住，稳扎稳打的骏马也能跑出好成绩！';
+            } else {
+                overallTitle = '继续努力·加油';
+                overallDesc = '马年需要更多努力和坚持，像训练中的骏马一样，持续进步终会迎来突破！';
+            }
+            
+            overallLuck.innerHTML = '<h3>您的马年总体运势：' + overallTitle + '</h3>' +
+                                   '<div class="luck-tag">' + getRating(averageScore) + '</div>' +
+                                   '<p class="overall-desc">' + overallDesc + '</p>';
+            
+            // 显示结果区域
+            resultContainer.style.display = 'block';
+            
+            // 滚动到结果区域
+            setTimeout(function() {
+                resultContainer.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        }
+
+        // 显示简单提示
+        function showSimpleAlert(message) {
+            // 移除旧提示
+            var oldAlert = document.querySelector('.simple-alert');
+            if (oldAlert) {
+                document.body.removeChild(oldAlert);
+            }
+            
+            // 创建新提示
+            var alertBox = document.createElement('div');
+            alertBox.className = 'simple-alert';
+            alertBox.innerHTML = '<div style="margin-bottom:10px;font-size:20px;">🐎</div>' +
+                                '<div>' + message + '</div>' +
+                                '<button onclick="this.parentElement.parentElement.removeChild(this.parentElement)">我知道了</button>';
+            
+            document.body.appendChild(alertBox);
+        }
+
+        // 分享功能
+        function shareResult() {
+            var scores = calculateLuck();
+            var totalScore = 0;
+            var scoreCount = 0;
+            for (var dim in scores) {
+                totalScore += scores[dim];
+                scoreCount++;
+            }
+            var averageScore = totalScore / scoreCount;
+            var rating = getRating(averageScore);
+            
+            var shareText = "我刚测了2026马年运势，结果是：" + rating + "！\n" +
+                           "事业：" + scores.career + "分，财富：" + scores.wealth + "分，\n" +
+                           "感情：" + scores.love + "分，健康：" + scores.health + "分\n" +
+                           "你也来测测你的马年运势吧！";
+            
+            // 尝试使用Web Share API
+            if (navigator.share) {
+                navigator.share({
+                    title: '我的2026马年运势测试结果',
+                    text: shareText,
+                    url: window.location.href
+                }).catch(function(error) {
+                    console.log('分享失败:', error);
+                    showSimpleAlert('分享失败，请手动复制以下内容：\n\n' + shareText + '\n\n网址：' + window.location.href);
+                });
+            } else {
+                // 降级方案
+                showSimpleAlert('请手动复制以下内容分享给朋友：\n\n' + shareText + '\n\n测试网址：' + window.location.href);
+            }
+        }
+
+        // 事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化问题
+            initializeQuestions();
+            
+            // 提交按钮事件
+            submitBtn.addEventListener('click', function() {
+                if (!this.disabled) {
+                    displayResults();
+                }
+            });
+            
+            // 分享按钮事件
+            shareBtn.addEventListener('click', shareResult);
+            
+            // 重新测试按钮事件
+            restartBtn.addEventListener('click', function() {
+                // 重置答案
+                for (var i = 0; i < currentAnswers.length; i++) {
+                    currentAnswers[i] = null;
+                }
+                
+                // 重置UI
+                var options = document.querySelectorAll('.option');
+                for (var j = 0; j < options.length; j++) {
+                    options[j].classList.remove('selected');
+                    options[j].querySelector('input').checked = false;
+                }
+                
+                submitBtn.disabled = true;
+                progressFill.style.width = '0%';
+                resultContainer.style.display = 'none';
+                
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+            });
+            
+            // 错误处理
+            window.addEventListener('error', function(e) {
+                console.error('页面错误:', e.error);
+                // 不显示错误给用户，避免页面崩溃
+            });
+        });
+    </script>
+</body>
+</html>
