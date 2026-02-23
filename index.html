@@ -2,529 +2,1069 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 微信专用meta标签 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!-- X5内核专用 -->
-    <meta name="x5-orientation" content="portrait">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="x5-page-mode" content="app">
-    <!-- QQ浏览器专用 -->
-    <meta name="imagemode" content="force">
-    <meta name="screen-orientation" content="portrait">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2026丙午马年运势测试</title>
     <style>
-        /* 基础重置 - 微信兼容 */
+        /* === 全局样式 === */
         * {
             margin: 0;
             padding: 0;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
         
         body {
-            font-family: "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #8B0000;
-            color: #333333;
-            line-height: 1.5;
-            padding: 15px;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.6;
             min-height: 100vh;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
+            padding: 20px;
         }
         
+        /* === 主容器 - 沿用原图1的大红色边框和白色背景 === */
         .container {
-            max-width: 100%;
+            max-width: 1000px;
             margin: 0 auto;
-            background-color: #FFFFFF;
-            border-radius: 10px;
-            padding: 20px;
-            border: 3px solid #FFD700;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: white;
+            border: 8px solid #8B0000; /* 大红色边框 */
+            border-radius: 0; /* 无圆角，保持原图方正规整 */
+            box-shadow: 0 10px 40px rgba(139, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
-        .header {
+        /* === 右上角"丙午马年"标签 === */
+        .year-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #8B0000;
+            color: white;
+            padding: 8px 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        
+        /* === 头部区域 === */
+        .hero-section {
             text-align: center;
+            padding: 50px 30px 30px;
+            background: white;
+            position: relative;
+        }
+        
+        /* === 核心视觉：简洁的棕色马emoji === */
+        .horse-container {
+            width: 100%;
+            max-width: 600px;
+            height: 200px; /* 减小高度，与emoji大小匹配 */
+            margin: 0 auto 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .horse-emoji {
+            font-size: 8rem; /* 大号emoji */
+            animation: horseBounce 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+        
+        @keyframes horseBounce {
+            0%, 100% { 
+                transform: translateY(0) scale(1);
+            }
+            20% { 
+                transform: translateY(-10px) rotate(5deg) scale(1.1);
+            }
+            40% { 
+                transform: translateY(0) rotate(-3deg) scale(1.05);
+            }
+            60% { 
+                transform: translateY(-15px) rotate(3deg) scale(1.15);
+            }
+            80% { 
+                transform: translateY(-5px) rotate(-2deg) scale(1.08);
+            }
+        }
+        
+        /* === 标题区域 - 完全按原图1样式 === */
+        .main-title {
+            color: #8B0000;
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #8B0000;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
         
-        .header h1 {
-            color: #8B0000;
-            font-size: 22px;
-            margin-bottom: 8px;
-            font-weight: bold;
+        .subtitle {
+            color: #666;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
         }
         
-        .header p {
-            color: #666666;
-            font-size: 14px;
-            line-height: 1.4;
+        .red-line {
+            width: 300px;
+            height: 4px;
+            background: linear-gradient(90deg, #8B0000, #FF4500, #FFD700);
+            margin: 0 auto 40px;
+            border-radius: 2px;
         }
         
-        .horse-icon {
-            font-size: 40px;
-            margin: 10px 0;
-            display: block;
-        }
-        
-        .question-container {
-            margin-bottom: 20px;
-        }
-        
-        .question {
-            background-color: #FFF9E6;
-            border-left: 4px solid #D4AF37;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-        
-        .question h3 {
-            color: #8B0000;
-            margin-bottom: 12px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .options {
-            display: block;
-        }
-        
-        .option {
-            display: block;
-            margin-bottom: 8px;
-            padding: 12px;
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-            border-radius: 6px;
-            cursor: pointer;
-            -webkit-transition: all 0.2s;
-            transition: all 0.2s;
-        }
-        
-        .option:hover {
-            background-color: #FFF0F0;
-            border-color: #8B0000;
-        }
-        
-        .option.selected {
-            background-color: #FFE4E1;
-            border-color: #8B0000;
-        }
-        
-        .option input {
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        
-        .option label {
-            vertical-align: middle;
-            cursor: pointer;
-            display: inline-block;
-            width: 90%;
-        }
-        
-        .button-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .btn {
-            background-color: #8B0000;
-            color: #FFFFFF;
-            border: none;
-            padding: 14px 30px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 25px;
-            cursor: pointer;
-            display: inline-block;
-            width: 80%;
-            max-width: 300px;
-            -webkit-transition: background-color 0.3s;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #B22222;
-        }
-        
-        .btn:disabled {
-            background-color: #CCCCCC;
-            cursor: not-allowed;
-        }
-        
-        .result-container {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #FFF9E6;
-            border-radius: 10px;
-            border: 2px solid #D4AF37;
-        }
-        
-        .result-container h2 {
-            color: #8B0000;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 18px;
-            border-bottom: 1px solid #FFD700;
-            padding-bottom: 8px;
-        }
-        
-        .luck-dimension {
-            margin-bottom: 15px;
-            padding: 12px;
-            background-color: #FFFFFF;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .dimension-icon {
-            float: left;
-            font-size: 24px;
-            margin-right: 12px;
-            width: 40px;
-            text-align: center;
-        }
-        
-        .dimension-info {
-            overflow: hidden;
-        }
-        
-        .dimension-title {
-            margin-bottom: 6px;
-            overflow: hidden;
-        }
-        
-        .dimension-name {
-            font-weight: bold;
-            color: #8B0000;
-            font-size: 15px;
-            float: left;
-        }
-        
-        .dimension-score {
-            font-weight: bold;
-            color: #D4AF37;
-            float: right;
-        }
-        
-        .dimension-bar {
-            height: 8px;
-            background-color: #EEEEEE;
-            border-radius: 4px;
-            margin-bottom: 6px;
-            overflow: hidden;
-        }
-        
-        .dimension-fill {
-            height: 100%;
-            background-color: #FFD700;
-            border-radius: 4px;
-        }
-        
-        .dimension-desc {
-            color: #666666;
-            font-size: 13px;
-        }
-        
-        .overall-luck {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #8B0000;
-            color: #FFFFFF;
-            border-radius: 8px;
-        }
-        
-        .overall-luck h3 {
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        
-        .luck-tag {
-            display: inline-block;
-            background-color: #FFD700;
-            color: #8B0000;
-            padding: 5px 12px;
+        /* === 统计卡片 === */
+        .stats-card {
+            background: #FFF9E6;
+            border: 3px solid #D4AF37;
             border-radius: 15px;
-            font-weight: bold;
-            margin: 8px 0;
-            font-size: 14px;
-        }
-        
-        .overall-desc {
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        
-        .share-section {
+            padding: 25px;
+            margin: 0 30px 40px;
             text-align: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px dashed #FFD700;
         }
         
-        .share-btn, .restart-btn {
-            background-color: #4CAF50;
-            color: #FFFFFF;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            margin: 5px;
-            display: inline-block;
-            width: 45%;
-            max-width: 140px;
+        .stats-title {
+            color: #8B0000;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .restart-btn {
-            background-color: #2196F3;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
-        .footer {
+        .stat-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
-            margin-top: 20px;
-            color: #777777;
-            font-size: 12px;
-            padding-top: 15px;
-            border-top: 1px solid #EEEEEE;
+            border: 2px solid #E0E0E0;
+        }
+        
+        .stat-value {
+            color: #8B0000;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 10px 0 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* === 进度条 === */
+        .progress-section {
+            margin: 0 30px 40px;
+        }
+        
+        .progress-text {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
         }
         
         .progress-bar {
-            height: 6px;
-            background-color: #EEEEEE;
-            border-radius: 3px;
-            margin: 15px 0;
+            height: 10px;
+            background: #F0F0F0;
+            border-radius: 5px;
             overflow: hidden;
         }
         
         .progress-fill {
             height: 100%;
-            background-color: #8B0000;
+            background: linear-gradient(90deg, #8B0000, #FF4500);
             width: 0%;
-            border-radius: 3px;
+            border-radius: 5px;
+            transition: width 0.7s ease;
         }
         
-        /* 简单提示框样式 */
-        .simple-alert {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 10000;
+        /* === 问题区域 === */
+        .question-container {
+            padding: 0 30px 30px;
+        }
+        
+        .question-card {
+            background: #F9F9F9;
+            border-left: 6px solid #8B0000;
+            border-radius: 0 10px 10px 0;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: #8B0000;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
             text-align: center;
-            width: 80%;
-            max-width: 300px;
-            border: 2px solid #FFD700;
-            font-size: 15px;
-        }
-        
-        .simple-alert button {
-            margin-top: 15px;
-            padding: 8px 20px;
-            background-color: #FFD700;
-            border: none;
-            border-radius: 20px;
-            color: #8B0000;
+            line-height: 35px;
             font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
         
-        /* 移动端优化 */
-        @media screen and (max-width: 480px) {
+        .question-text {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .option {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .option:hover {
+            background: #FFF5F5;
+            border-color: #8B0000;
+        }
+        
+        .option.selected {
+            background: #FFE4E1;
+            border-color: #8B0000;
+            box-shadow: 0 3px 10px rgba(139, 0, 0, 0.1);
+        }
+        
+        .option-emoji {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .option-text {
+            flex: 1;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .option input {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* === 按钮 === */
+        .action-buttons {
+            text-align: center;
+            padding: 0 30px 40px;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #8B0000, #B22222);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.3);
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(139, 0, 0, 0.4);
+        }
+        
+        .btn-submit:disabled {
+            background: #CCCCCC;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* === 结果区域 === */
+        .result-container {
+            display: none;
+            padding: 0 30px 40px;
+        }
+        
+        .result-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .result-title {
+            color: #8B0000;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* 运势维度网格 */
+        .luck-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .luck-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid #F0F0F0;
+            text-align: center;
+        }
+        
+        .luck-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .luck-name {
+            color: #8B0000;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .luck-score {
+            color: #D4AF37;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 10px 0;
+        }
+        
+        .luck-bar {
+            height: 8px;
+            background: #F0F0F0;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .luck-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .luck-desc {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* === 总体运势卡片 - 按原图2设计但更丰富 === */
+        .overall-card {
+            background: #FFF9E6;
+            border: 3px solid #D4AF37;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .overall-card::before {
+            content: "🏮";
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            right: 20px;
+            top: 20px;
+        }
+        
+        .overall-title {
+            color: #8B0000;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .overall-tag {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B0000;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .overall-desc {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* 签位详细解读 */
+        .sign-details {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #E0E0E0;
+            text-align: left;
+        }
+        
+        .sign-section {
+            margin-bottom: 20px;
+        }
+        
+        .sign-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .sign-title {
+            color: #8B0000;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sign-content {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .sign-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sign-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        
+        .sign-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* 分享区域 */
+        .share-section {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid #F0F0F0;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-share, .btn-restart {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+        
+        .btn-share {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-restart {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-share:hover, .btn-restart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* === 页脚 === */
+        .footer {
+            text-align: center;
+            color: #999;
+            padding: 30px 20px 20px;
+            border-top: 1px solid #EEE;
+            font-size: 0.9rem;
+        }
+        
+        /* === 响应式设计 === */
+        @media (max-width: 768px) {
             body {
                 padding: 10px;
             }
             
             .container {
-                padding: 15px;
+                border-width: 5px;
             }
             
-            .header h1 {
-                font-size: 20px;
+            .year-tag {
+                font-size: 1rem;
+                padding: 6px 40px;
+                right: -25px;
+                top: 15px;
             }
             
-            .question h3 {
-                font-size: 15px;
+            .horse-container {
+                height: 150px;
             }
             
-            .btn {
-                width: 90%;
-                padding: 12px 20px;
+            .horse-emoji {
+                font-size: 6rem;
             }
             
-            .share-btn, .restart-btn {
-                width: 90%;
-                max-width: 200px;
-                margin: 5px auto;
-                display: block;
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .luck-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .question-container, .action-buttons, .result-container {
+                padding: 0 20px 30px;
+            }
+            
+            .btn-submit {
+                width: 100%;
+                padding: 16px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-share, .btn-restart {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* === 自定义提示框 === */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            z-index: 10000;
+            text-align: center;
+            max-width: 90%;
+            width: 350px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid #FFD700;
+            animation: alertFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes alertFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <span class="horse-icon">🐎</span>
-            <h1>2026丙午马年运势测试</h1>
-            <p>2026年是农历丙午年，生肖属马。快来测测你的马年运势如何，哪个方面会马到成功？</p>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+        <!-- 右上角标签 -->
+        <div class="year-tag">丙午马年</div>
+        
+        <!-- 头部区域 -->
+        <div class="hero-section">
+            <!-- 核心视觉：简洁的棕色马emoji -->
+            <div class="horse-container">
+                <!-- 用回最初设计的简洁棕色马emoji -->
+                <div class="horse-emoji">🐎</div>
+            </div>
+            
+            <h1 class="main-title">2026丙午马年运势测试</h1>
+            <p class="subtitle">2026年是农历丙午年，生肖属马。测测你是哪种马？事业、财富、感情、健康哪个会马到成功？</p>
+            <div class="red-line"></div>
+            
+            <!-- 统计卡片 -->
+            <div class="stats-card">
+                <h2 class="stats-title"><span>📊</span> 实时测试统计</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">参与测试总人数</div>
+                        <div class="stat-value" id="totalUsers">12345</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">获得上上签人数</div>
+                        <div class="stat-value" id="excellentUsers">2568</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">平均幸运指数</div>
+                        <div class="stat-value" id="avgScore">7.6</div>
+                    </div>
+                </div>
+                <div style="color: #D4AF37; font-size: 1.1rem; font-weight: 600;">您将击败 <span id="beatPercent">90%</span> 的测试者</div>
+            </div>
+            
+            <!-- 进度条 -->
+            <div class="progress-section">
+                <div class="progress-text">
+                    <span>测试进度</span>
+                    <span id="progressText">0/15</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
             </div>
         </div>
         
+        <!-- 问题区域（15道题） -->
         <div class="question-container" id="questionContainer">
             <!-- 问题将在这里动态生成 -->
         </div>
         
-        <div class="button-container">
-            <button class="btn" id="submitBtn" disabled>提交答案，查看我的马年运势</button>
+        <!-- 提交按钮 -->
+        <div class="action-buttons">
+            <button class="btn-submit" id="submitBtn" disabled>开始测试我的马年运势</button>
         </div>
         
+        <!-- 结果区域 -->
         <div class="result-container" id="resultContainer">
-            <h2>您的专属马年运势报告</h2>
-            <div id="luckDetails">
+            <div class="result-header">
+                <h2 class="result-title">您的专属马年运势报告</h2>
+                <p class="result-subtitle">根据您的选择，系统为您生成专属运势分析</p>
+            </div>
+            
+            <div class="luck-grid" id="luckDetails">
                 <!-- 运势详情将在这里动态生成 -->
             </div>
-            <div class="overall-luck" id="overallLuck">
+            
+            <div class="overall-card" id="overallLuck">
                 <!-- 总体运势将在这里动态生成 -->
             </div>
+            
             <div class="share-section">
-                <button class="share-btn" id="shareBtn">分享给朋友</button>
-                <button class="restart-btn" id="restartBtn">重新测试</button>
+                <div class="share-buttons">
+                    <button class="btn-share" id="shareBtn">
+                        <span style="font-size: 1.2rem;">📤</span> 分享测试结果
+                    </button>
+                    <button class="btn-restart" id="restartBtn">
+                        <span style="font-size: 1.2rem;">🔄</span> 重新测试一次
+                    </button>
+                </div>
             </div>
         </div>
         
+        <!-- 页脚 -->
         <div class="footer">
-            <p>本测试仅供娱乐，结果仅供参考。祝您丙午马年马到成功，万事如意！</p>
-            <p>© 2026 马年运势测试 | 数据不会保存，请放心测试</p>
+            <p>本测试结果由系统智能分析生成，仅供娱乐参考，愿您马年吉祥，万事如意！</p>
+            <p>© 2026 马年运势测试 | 数据统计仅作展示，不会收集任何个人隐私信息</p>
         </div>
     </div>
 
+    <!-- JavaScript代码保持不变（与最近一版完全一致） -->
     <script>
-        // 问题数据 - 使用简单结构
-        var questions = [
+        // 模拟统计数据
+        let statsData = {
+            totalUsers: 12345,
+            excellentUsers: 2568,
+            averageScore: 7.6,
+            beatPercent: 90
+        };
+
+        // 15道题目 - 融入马年与网络热梗
+        const questions = [
             {
-                text: "马年伊始，你更倾向于如何制定计划？",
+                text: "马年开工第一天，你会以什么方式开启新一年？",
                 options: [
-                    { text: "A. 制定详细路线图，稳步推进", scores: { career: 3, wealth: 1, health: 1 } },
-                    { text: "B. 先定一个小目标，比如先赚一个亿", scores: { career: 1, wealth: 3, love: 1 } },
-                    { text: "C. 随遇而安，相信船到桥头自然直", scores: { love: 2, health: 3 } }
+                    { text: "🐎 提前到岗，制定全年计划，做'带头马'", scores: { career: 3, health: -1 } },
+                    { text: "💰 先看理财，计划如何'马上有钱'", scores: { wealth: 3, career: 1 } },
+                    { text: "🍵 慢悠悠到公司，泡杯枸杞茶，'养生马'模式", scores: { health: 3, career: -1 } },
+                    { text: "❤️ 给同事带小礼物，搞好人际关系最重要", scores: { love: 3, wealth: -1 } }
                 ]
             },
             {
-                text: "面对马年的新机遇，你的第一反应是？",
+                text: "老板布置了一个超高难度任务，你的第一反应是？",
                 options: [
-                    { text: "A. 立即行动，抢占先机", scores: { career: 3, health: -1 } },
-                    { text: "B. 谨慎分析，评估风险与收益", scores: { wealth: 3, career: 1 } },
-                    { text: "C. 与朋友商量，听听大家的意见", scores: { love: 2, career: 1 } }
+                    { text: "💪 '骏马出征！' 立即行动，正面硬刚", scores: { career: 3, health: -2 } },
+                    { text: "🤔 '让马儿先吃草' 先要资源，再谈条件", scores: { wealth: 2, career: 1 } },
+                    { text: "🦊 '找匹好马带我飞' 求助大佬，借力使力", scores: { love: 2, career: 2 } },
+                    { text: "😴 '马儿也需要休息' 先摸鱼，deadline再说", scores: { health: 2, career: -2 } }
                 ]
             },
             {
-                text: "马年你最希望在哪方面有所突破？",
+                text: "马年你最想在哪方面'马到成功'？",
                 options: [
-                    { text: "A. 事业/学业更上一层楼", scores: { career: 3 } },
-                    { text: "B. 财运亨通，收入翻番", scores: { wealth: 3 } },
-                    { text: "C. 感情甜蜜，家庭和睦", scores: { love: 3 } }
+                    { text: "🏆 事业突破，升职加薪当高管", scores: { career: 4 } },
+                    { text: "💰 财富自由，副业收入超主业", scores: { wealth: 4 } },
+                    { text: "❤️ 感情圆满，找到灵魂伴侣", scores: { love: 4 } },
+                    { text: "🏃 身体健康，练出马甲线/腹肌", scores: { health: 4 } }
                 ]
             },
             {
-                text: "你会如何安排马年的休闲时间？",
+                text: "朋友拉你投资一个'马上暴富'项目，你会？",
                 options: [
-                    { text: "A. 学习新技能，自我提升", scores: { career: 2, health: 1 } },
-                    { text: "B. 旅行放松，开阔眼界", scores: { health: 3, wealth: -1 } },
-                    { text: "C. 陪伴家人朋友，享受温馨时光", scores: { love: 3, health: 1 } }
+                    { text: "🚀 '富贵险中求！' 梭哈入场", scores: { wealth: 3, health: -1 } },
+                    { text: "🔍 '让马儿先探路' 调研清楚再决定", scores: { wealth: 2, career: 1 } },
+                    { text: "🤝 '信马由缰' 相信朋友，跟投入场", scores: { love: 2, wealth: 1 } },
+                    { text: "🚫 '我太奶说财不进急门' 婉言拒绝", scores: { health: 2, wealth: -1 } }
                 ]
             },
             {
-                text: "如果马年遇到挫折，你会如何应对？",
+                text: "马年遇到职场小人，你会如何应对？",
                 options: [
-                    { text: "A. 越挫越勇，寻找新方法", scores: { career: 2, health: -1 } },
-                    { text: "B. 暂时休息，调整状态再出发", scores: { health: 3 } },
-                    { text: "C. 寻求帮助，借助他人力量", scores: { love: 2, career: 1 } }
+                    { text: "⚔️ '马踏飞燕！' 正面硬刚，清理门户", scores: { career: 2, health: -2 } },
+                    { text: "🦊 '狐假马威' 借领导之力巧妙化解", scores: { career: 3, love: -1 } },
+                    { text: "🙈 '马耳东风' 装不知道，专注自己", scores: { health: 3, career: -1 } },
+                    { text: "🤝 '化敌为马' 尝试沟通，争取化敌为友", scores: { love: 3, career: 1 } }
+                ]
+            },
+            {
+                text: "马年情人节，你会如何安排？",
+                options: [
+                    { text: "🌹 精心准备惊喜，浪漫烛光晚餐", scores: { love: 3, wealth: -2 } },
+                    { text: "💰 发个大红包，简单直接表达爱", scores: { love: 2, wealth: -1 } },
+                    { text: "🏃 一起去运动，健康约会两不误", scores: { health: 2, love: 1 } },
+                    { text: "💼 加班搞钱，'有情饮水饱不如有钱'", scores: { career: 2, love: -1 } }
+                ]
+            },
+            {
+                text: "马年遇到职业瓶颈，你会如何突破？",
+                options: [
+                    { text: "📚 报班学习，提升技能做'千里马'", scores: { career: 3, wealth: -1 } },
+                    { text: "🔄 跳槽转行，寻找新'草原'", scores: { career: 2, health: -1 } },
+                    { text: "🤝 拓展人脉，寻找'伯乐'提携", scores: { love: 2, career: 2 } },
+                    { text: "😴 先休息调整，'马儿也需要吃草'", scores: { health: 3, career: -1 } }
+                ]
+            },
+            {
+                text: "马年你会如何管理健康？",
+                options: [
+                    { text: "🏃 每天锻炼，做自律'汗血宝马'", scores: { health: 3, career: -1 } },
+                    { text: "🥗 科学饮食，营养均衡搭配", scores: { health: 2, wealth: -1 } },
+                    { text: "😴 保证睡眠，拒绝熬夜伤身", scores: { health: 2, career: -1 } },
+                    { text: "🧘 定期体检，中医调理养生", scores: { health: 2, love: 1 } }
+                ]
+            },
+            {
+                text: "马年财运投资策略，你更倾向？",
+                options: [
+                    { text: "🚀 高风险高回报，搏一搏单车变摩托", scores: { wealth: 4, health: -2 } },
+                    { text: "📈 稳健理财，细水长流稳增长", scores: { wealth: 2, health: 1 } },
+                    { text: "💼 投资自己，技能提升最保值", scores: { career: 2, wealth: 1 } },
+                    { text: "🤝 跟投大佬，相信专业判断", scores: { love: 1, wealth: 2 } }
+                ]
+            },
+            {
+                text: "马年遇到喜欢的人，你会？",
+                options: [
+                    { text: "💘 主动出击，'烈马追风'大胆表白", scores: { love: 3, health: -1 } },
+                    { text: "🤔 先做朋友，'润马细无声'慢慢接近", scores: { love: 2, health: 1 } },
+                    { text: "💼 提升自己，'良马自有伯乐识'", scores: { career: 2, love: 1 } },
+                    { text: "😐 默默暗恋，'马儿不吃回头草'怕受伤", scores: { health: 2, love: -1 } }
+                ]
+            },
+            {
+                text: "马年家庭关系处理，你的风格是？",
+                options: [
+                    { text: "👨‍👩‍👧 定期家庭聚会，亲情第一位", scores: { love: 3, wealth: -1 } },
+                    { text: "💰 经济支持，给家人最好的物质条件", scores: { wealth: 2, love: 1 } },
+                    { text: "🤝 平等沟通，尊重彼此空间", scores: { love: 2, health: 1 } },
+                    { text: "😴 少回家，避免催婚催生等烦恼", scores: { health: 2, love: -2 } }
+                ]
+            },
+            {
+                text: "马年学习新技能，你会选择？",
+                options: [
+                    { text: "💻 职场硬技能，提升竞争力", scores: { career: 3, wealth: 1 } },
+                    { text: "💰 理财投资知识，让钱生钱", scores: { wealth: 3, career: 1 } },
+                    { text: "🎨 兴趣爱好，丰富精神生活", scores: { health: 2, love: 1 } },
+                    { text: "🧘 身心健康，冥想瑜伽等", scores: { health: 3, career: -1 } }
+                ]
+            },
+            {
+                text: "马年遇到工作压力巨大，你会？",
+                options: [
+                    { text: "🏃 运动发泄，'汗血宝马'式解压", scores: { health: 3, career: -1 } },
+                    { text: "🛍️ 购物消费，'买买买'缓解压力", scores: { wealth: -2, health: 1 } },
+                    { text: "🍻 朋友聚会，倾诉吐槽求安慰", scores: { love: 2, health: 1 } },
+                    { text: "😴 躺平休息，'马儿也需要歇脚'", scores: { health: 2, career: -2 } }
+                ]
+            },
+            {
+                text: "马年你会如何安排假期旅行？",
+                options: [
+                    { text: "🏔️ 挑战极限，徒步登山看世界", scores: { health: 2, career: -1 } },
+                    { text: "🏖️ 海岛度假，彻底放松身心", scores: { health: 3, wealth: -1 } },
+                    { text: "🏙️ 城市探索，美食购物之旅", scores: { wealth: -1, love: 2 } },
+                    { text: "🏡 宅家休息，'我的床就是我的草原'", scores: { health: 2, love: -1 } }
+                ]
+            },
+            {
+                text: "马年最后一天，你希望自己成为？",
+                options: [
+                    { text: "🏆 事业有成，职场'千里马'", scores: { career: 3 } },
+                    { text: "💰 财富增值，理财'黑马'", scores: { wealth: 3 } },
+                    { text: "❤️ 感情幸福，人生'白马来'", scores: { love: 3 } },
+                    { text: "🏃 健康活力，身体'汗血宝马'", scores: { health: 3 } }
                 ]
             }
         ];
 
         // 运势维度配置
-        var dimensions = [
-            { id: 'career', name: '事业运势', icon: '💼' },
-            { id: 'wealth', name: '财富运势', icon: '💰' },
-            { id: 'love', name: '感情运势', icon: '❤️' },
-            { id: 'health', name: '健康运势', icon: '🏃' }
+        const dimensions = [
+            { id: 'career', name: '事业运势', icon: '💼', color: '#8B0000' },
+            { id: 'wealth', name: '财富运势', icon: '💰', color: '#D4AF37' },
+            { id: 'love', name: '感情运势', icon: '❤️', color: '#FF69B4' },
+            { id: 'health', name: '健康运势', icon: '🏃', color: '#4CAF50' }
+        ];
+
+        // 运势评级描述
+        const ratingDescriptions = {
+            excellent: { 
+                name: '上上签', 
+                color: '#D4AF37',
+                desc: '运势极佳，吉星高照'
+            },
+            good: { 
+                name: '中上签', 
+                color: '#4CAF50',
+                desc: '运势良好，稳中有进'
+            },
+            average: { 
+                name: '中平签', 
+                color: '#2196F3',
+                desc: '运势平稳，需主动把握'
+            },
+            low: { 
+                name: '中下签', 
+                color: '#FF9800',
+                desc: '运势一般，需多努力'
+            }
+        };
+
+        // 总体运势描述库 - 更丰富的签位解读
+        const overallLuckDescriptions = [
+            {
+                condition: (scores) => scores.career >= 12 && scores.wealth >= 10,
+                title: "天选之子·龙马腾飞",
+                tag: "上上签·大吉",
+                description: "2026丙午火马年，您如天选之子，事业财富双线飘红！火马之年，您将如龙马腾飞，在职场和财富领域都能取得突破性进展。",
+                details: {
+                    career: "事业上如骏马奔腾，有望获得重要晋升或突破性项目。贵人运强，有伯乐赏识。",
+                    wealth: "财运亨通，正财偏财皆旺。投资眼光精准，有意外之财机会。",
+                    love: "感情生活甜蜜，单身者易遇正缘，有伴者关系更进一层。",
+                    health: "精力充沛，但需注意工作过劳。建议劳逸结合，定期运动。",
+                    advice: "乘胜追击，但勿骄傲自满。多与属虎、狗、羊的人合作，运势更佳。"
+                }
+            },
+            {
+                condition: (scores) => scores.love >= 12,
+                title: "红鸾星动·良缘天定",
+                tag: "上上签·大吉",
+                description: "红鸾星动，桃花盛开！2026年您的感情运势如汗血宝马，光彩夺目，是缔结良缘的绝佳时机。",
+                details: {
+                    career: "事业平稳，人际关系和谐。同事关系融洽，团队合作顺畅。",
+                    wealth: "财运稳定，无大起大落。适合稳健理财，不宜高风险投资。",
+                    love: "感情运势极佳！单身者易遇灵魂伴侣，有伴者可能步入婚姻。",
+                    health: "心情愉悦，身心健康。注意不要因感情事影响作息。",
+                    advice: "主动出击，勇敢表达。春季和秋季是感情发展的黄金期。"
+                }
+            },
+            {
+                condition: (scores) => scores.health >= 12,
+                title: "身强体健·福寿双全",
+                tag: "上上签·大吉",
+                description: "身如骏马，体健如牛！2026年您将拥有充沛的精力和健康的体魄，是追求事业和生活的强大后盾。",
+                details: {
+                    career: "精力充沛，工作效率高。但需避免因健康自信而过度劳累。",
+                    wealth: "健康就是财富！医疗开支少，有更多资金用于投资和享受。",
+                    love: "阳光健康的气质吸引异性，感情生活和谐美满。",
+                    health: "身体状况极佳，抵抗力强。适合开展新的健身计划。",
+                    advice: "保持良好作息，继续坚持健康生活方式。可尝试马拉松、登山等挑战。"
+                }
+            },
+            {
+                condition: (scores) => scores.career >= 10,
+                title: "事业骏马·平步青云",
+                tag: "中上签·吉",
+                description: "事业如骏马奔腾，2026年您将在职场上有出色表现，有望获得重要机会和认可。",
+                details: {
+                    career: "职场表现亮眼，易获得领导赏识。下半年可能有升职加薪机会。",
+                    wealth: "正财稳定增长，偏财需谨慎。不宜参与高风险投资。",
+                    love: "工作忙碌可能影响感情生活，需注意平衡。",
+                    health: "工作压力较大，需注意休息和放松。",
+                    advice: "专注主业，发挥专业优势。3月、7月是事业关键期。"
+                }
+            },
+            {
+                condition: (scores) => scores.wealth >= 10,
+                title: "财富黑马·财运亨通",
+                tag: "中上签·吉",
+                description: "财星高照，财运亨通！2026年您的财运如黑马突出，有望实现财富的稳步增长。",
+                details: {
+                    career: "工作表现稳定，可能有额外奖金或提成。",
+                    wealth: "财运旺盛，有意外收入机会。适合学习理财知识。",
+                    love: "物质基础稳固，感情生活更加踏实。",
+                    health: "财务自由带来心理放松，健康状况良好。",
+                    advice: "理性投资，分散风险。8月、11月是财运高峰期。"
+                }
+            },
+            {
+                condition: (scores) => scores.health >= 10 && scores.career <= 8,
+                title: "闲云野鹤·悠然自得",
+                tag: "中平签·平",
+                description: "身闲心静，悠然自得。2026年您将拥有健康的身体和放松的心态，享受生活的美好。",
+                details: {
+                    career: "事业平稳，无大突破也无大风险。适合稳扎稳打。",
+                    wealth: "财运一般，收支平衡。不宜进行大额投资。",
+                    love: "感情生活平淡但温馨，细水长流。",
+                    health: "身心健康，精神状态良好。适合培养养生习惯。",
+                    advice: "享受当下，不必强求。可培养书法、茶道等静心爱好。"
+                }
+            },
+            {
+                condition: (scores) => scores.career <= 6 && scores.wealth <= 6 && scores.love <= 6 && scores.health <= 6,
+                title: "蓄势待发·厚积薄发",
+                tag: "中下签·平",
+                description: "2026年是您的蓄力之年，运势平稳，适合打好基础，为未来的突破积蓄力量。",
+                details: {
+                    career: "职场竞争激烈，需低调积累。多学习技能，少参与是非。",
+                    wealth: "财运一般，宜节流储蓄。避免冲动消费和大额投资。",
+                    love: "感情平淡，单身者需耐心等待，有伴者需多沟通。",
+                    health: "注意小病小痛，定期体检。避免过度劳累。",
+                    advice: "韬光养晦，静待时机。多读书学习，提升内在。农历五月、十月需特别谨慎。"
+                }
+            },
+            {
+                condition: () => true,
+                title: "稳中求进·步步为营",
+                tag: "中平签·平",
+                description: "马年运势平稳，适合打好基础，稳步前进。记住，稳扎稳打的骏马也能跑出好成绩！蓄势待发，未来可期！",
+                details: {
+                    career: "事业稳步发展，需脚踏实地。下半年可能有转机。",
+                    wealth: "财运平稳，宜制定储蓄计划。可考虑稳健型理财。",
+                    love: "感情需要经营，多花时间陪伴。单身者需主动拓展社交。",
+                    health: "注意劳逸结合，保持适度运动。饮食要规律。",
+                    advice: "制定可行计划，分步实施。多与正能量的人交往，运势会逐渐提升。"
+                }
+            }
         ];
 
         // 当前状态
-        var currentAnswers = [];
-        var userScores = { career: 0, wealth: 0, love: 0, health: 0 };
-        
-        // 初始化数组
-        for (var i = 0; i < questions.length; i++) {
-            currentAnswers[i] = null;
-        }
+        let currentAnswers = new Array(questions.length).fill(null);
+        let userScores = { career: 0, wealth: 0, love: 0, health: 0 };
 
         // DOM元素
-        var questionContainer = document.getElementById('questionContainer');
-        var submitBtn = document.getElementById('submitBtn');
-        var resultContainer = document.getElementById('resultContainer');
-        var luckDetails = document.getElementById('luckDetails');
-        var overallLuck = document.getElementById('overallLuck');
-        var progressFill = document.getElementById('progressFill');
-        var shareBtn = document.getElementById('shareBtn');
-        var restartBtn = document.getElementById('restartBtn');
+        const questionContainer = document.getElementById('questionContainer');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultContainer = document.getElementById('resultContainer');
+        const luckDetails = document.getElementById('luckDetails');
+        const overallLuck = document.getElementById('overallLuck');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const shareBtn = document.getElementById('shareBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        
+        // 统计元素
+        const totalUsersEl = document.getElementById('totalUsers');
+        const excellentUsersEl = document.getElementById('excellentUsers');
+        const avgScoreEl = document.getElementById('avgScore');
+        const beatPercentEl = document.getElementById('beatPercent');
+
+        // 初始化统计
+        function initStats() {
+            totalUsersEl.textContent = statsData.totalUsers.toLocaleString();
+            excellentUsersEl.textContent = statsData.excellentUsers.toLocaleString();
+            avgScoreEl.textContent = statsData.averageScore;
+            beatPercentEl.textContent = statsData.beatPercent;
+        }
 
         // 初始化问题
         function initializeQuestions() {
             questionContainer.innerHTML = '';
             
-            for (var i = 0; i < questions.length; i++) {
-                var question = questions[i];
-                var questionElement = document.createElement('div');
-                questionElement.className = 'question';
-                
-                var optionsHtml = '';
-                for (var j = 0; j < question.options.length; j++) {
-                    optionsHtml += '<div class="option" data-q="' + i + '" data-o="' + j + '">' +
-                                   '<input type="radio" id="q' + i + '_o' + j + '" name="q' + i + '">' +
-                                   '<label for="q' + i + '_o' + j + '">' + question.options[j].text + '</label>' +
-                                   '</div>';
-                }
-                
-                questionElement.innerHTML = '<h3>' + (i + 1) + '. ' + question.text + '</h3>' +
-                                           '<div class="options">' + optionsHtml + '</div>';
+            questions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'question-card';
+                questionElement.innerHTML = `
+                    <div class="question-number">${index + 1}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="options-grid">
+                        ${question.options.map((option, optionIndex) => `
+                            <div class="option" data-question="${index}" data-option="${optionIndex}">
+                                <div class="option-emoji">${option.text.split(' ')[0]}</div>
+                                <div class="option-text">${option.text}</div>
+                                <input type="radio" id="q${index}_o${optionIndex}" name="q${index}" data-question="${index}" data-option="${optionIndex}">
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
                 
                 questionContainer.appendChild(questionElement);
-            }
+            });
             
             // 添加选项选择事件
-            var optionElements = document.querySelectorAll('.option');
-            for (var k = 0; k < optionElements.length; k++) {
-                optionElements[k].addEventListener('click', function() {
-                    var questionIndex = parseInt(this.getAttribute('data-q'));
-                    var optionIndex = parseInt(this.getAttribute('data-o'));
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionIndex = parseInt(this.dataset.question);
+                    const optionIndex = parseInt(this.dataset.option);
                     
                     // 取消同问题的其他选择
-                    var sameQuestionOptions = document.querySelectorAll('.option[data-q="' + questionIndex + '"]');
-                    for (var m = 0; m < sameQuestionOptions.length; m++) {
-                        sameQuestionOptions[m].classList.remove('selected');
-                        sameQuestionOptions[m].querySelector('input').checked = false;
-                    }
+                    const questionOptions = document.querySelectorAll(`.option[data-question="${questionIndex}"]`);
+                    questionOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.querySelector('input').checked = false;
+                    });
                     
                     // 选中当前选项
                     this.classList.add('selected');
@@ -539,31 +1079,22 @@
                     // 更新进度条
                     updateProgressBar();
                 });
-            }
+            });
         }
 
         // 更新提交按钮状态
         function updateSubmitButton() {
-            var allAnswered = true;
-            for (var i = 0; i < currentAnswers.length; i++) {
-                if (currentAnswers[i] === null) {
-                    allAnswered = false;
-                    break;
-                }
-            }
+            const allAnswered = currentAnswers.every(answer => answer !== null);
             submitBtn.disabled = !allAnswered;
+            submitBtn.textContent = allAnswered ? "🐎 查看我的马年运势" : `请完成所有测试题 (${currentAnswers.filter(a => a !== null).length}/${questions.length})`;
         }
 
         // 更新进度条
         function updateProgressBar() {
-            var answeredCount = 0;
-            for (var i = 0; i < currentAnswers.length; i++) {
-                if (currentAnswers[i] !== null) {
-                    answeredCount++;
-                }
-            }
-            var progress = (answeredCount / questions.length) * 100;
-            progressFill.style.width = progress + '%';
+            const answeredCount = currentAnswers.filter(answer => answer !== null).length;
+            const progress = (answeredCount / questions.length) * 100;
+            progressFill.style.width = `${progress}%`;
+            progressText.textContent = `${answeredCount}/${questions.length}`;
         }
 
         // 计算运势
@@ -572,25 +1103,23 @@
             userScores = { career: 0, wealth: 0, love: 0, health: 0 };
             
             // 计算每个维度的总分
-            for (var i = 0; i < currentAnswers.length; i++) {
-                var answerIndex = currentAnswers[i];
+            currentAnswers.forEach((answerIndex, questionIndex) => {
                 if (answerIndex !== null) {
-                    var optionScores = questions[i].options[answerIndex].scores;
+                    const optionScores = questions[questionIndex].options[answerIndex].scores;
                     
                     // 累加各维度分数
-                    for (var dimension in optionScores) {
-                        if (optionScores.hasOwnProperty(dimension) && userScores.hasOwnProperty(dimension)) {
+                    for (const dimension in optionScores) {
+                        if (userScores.hasOwnProperty(dimension)) {
                             userScores[dimension] += optionScores[dimension];
                         }
                     }
                 }
-            }
+            });
             
             // 确保分数不为负数
-            for (var dim in userScores) {
-                if (userScores[dim] < 0) {
-                    userScores[dim] = 0;
-                }
+            for (const dimension in userScores) {
+                if (userScores[dimension] < 0) userScores[dimension] = 0;
+                if (userScores[dimension] > 20) userScores[dimension] = 20; // 15题最高分20
             }
             
             return userScores;
@@ -598,175 +1127,264 @@
 
         // 获取运势评级
         function getRating(score) {
-            if (score >= 8) return '上上签 🚀';
-            if (score >= 6) return '中上签 👍';
-            if (score >= 4) return '中平签 ➡️';
-            return '继续努力 💪';
+            if (score >= 15) return 'excellent';
+            if (score >= 10) return 'good';
+            if (score >= 6) return 'average';
+            return 'low';
+        }
+
+        // 获取运势评级文字
+        function getRatingText(score) {
+            if (score >= 15) return '上上签';
+            if (score >= 10) return '中上签';
+            if (score >= 6) return '中平签';
+            return '中下签';
         }
 
         // 显示结果
         function displayResults() {
             // 计算运势
-            var scores = calculateLuck();
+            const scores = calculateLuck();
+            
+            // 模拟更新统计数据
+            statsData.totalUsers += 1;
+            statsData.excellentUsers += scores.career >= 15 ? 1 : 0;
+            
+            // 更新统计显示
+            updateStatsDisplay();
             
             // 生成各维度运势详情
-            var detailsHtml = '';
-            for (var i = 0; i < dimensions.length; i++) {
-                var dimension = dimensions[i];
-                var score = scores[dimension.id];
-                var rating = getRating(score);
-                var percentage = Math.min(score * 10, 100);
+            luckDetails.innerHTML = dimensions.map(dimension => {
+                const score = scores[dimension.id];
+                const rating = getRating(score);
+                const ratingInfo = ratingDescriptions[rating];
+                const percentage = Math.min((score / 20) * 100, 100);
                 
-                detailsHtml += '<div class="luck-dimension">' +
-                              '<div class="dimension-icon">' + dimension.icon + '</div>' +
-                              '<div class="dimension-info">' +
-                              '<div class="dimension-title">' +
-                              '<span class="dimension-name">' + dimension.name + '</span>' +
-                              '<span class="dimension-score">' + rating + '</span>' +
-                              '</div>' +
-                              '<div class="dimension-bar">' +
-                              '<div class="dimension-fill" style="width:' + percentage + '%;"></div>' +
-                              '</div>' +
-                              '<div class="dimension-desc">得分：' + score + '</div>' +
-                              '</div>' +
-                              '</div>';
-            }
-            
-            luckDetails.innerHTML = detailsHtml;
+                return `
+                    <div class="luck-card">
+                        <div class="luck-icon">${dimension.icon}</div>
+                        <div class="luck-name">${dimension.name}</div>
+                        <div class="luck-score">${score}分</div>
+                        <div class="luck-bar">
+                            <div class="luck-fill" style="width: ${percentage}%; background: linear-gradient(90deg, ${dimension.color}, ${ratingInfo.color})"></div>
+                        </div>
+                        <div class="luck-desc">${ratingInfo.name} · ${ratingInfo.desc}</div>
+                    </div>
+                `;
+            }).join('');
             
             // 生成总体运势
-            var totalScore = 0;
-            var scoreCount = 0;
-            for (var dim in scores) {
-                totalScore += scores[dim];
-                scoreCount++;
-            }
-            var averageScore = totalScore / scoreCount;
+            let overallDescription = overallLuckDescriptions.find(desc => desc.condition(scores)) || overallLuckDescriptions[overallLuckDescriptions.length - 1];
             
-            var overallTitle = '';
-            var overallDesc = '';
+            // 计算击败百分比
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+            const maxScore = 80; // 4个维度 * 20分
+            const userScorePercent = (totalScore / maxScore) * 100;
             
-            if (averageScore >= 7) {
-                overallTitle = '上上签·大吉';
-                overallDesc = '丙午火马，气势如虹。今年你就像踏上青云路的骏马，各方面运势都相当不错！';
-            } else if (averageScore >= 5) {
-                overallTitle = '中上签·吉';
-                overallDesc = '马年运势良好，稳中有进。像稳健的骏马一样，一步一个脚印，定能收获满满！';
-            } else if (averageScore >= 3) {
-                overallTitle = '中平签·平';
-                overallDesc = '马年运势平稳，适合打好基础。记住，稳扎稳打的骏马也能跑出好成绩！';
-            } else {
-                overallTitle = '继续努力·加油';
-                overallDesc = '马年需要更多努力和坚持，像训练中的骏马一样，持续进步终会迎来突破！';
-            }
+            let beatPercent;
+            if (userScorePercent >= 85) beatPercent = 95;
+            else if (userScorePercent >= 70) beatPercent = 85;
+            else if (userScorePercent >= 55) beatPercent = 70;
+            else if (userScorePercent >= 40) beatPercent = 50;
+            else if (userScorePercent >= 25) beatPercent = 30;
+            else beatPercent = 15;
             
-            overallLuck.innerHTML = '<h3>您的马年总体运势：' + overallTitle + '</h3>' +
-                                   '<div class="luck-tag">' + getRating(averageScore) + '</div>' +
-                                   '<p class="overall-desc">' + overallDesc + '</p>';
+            overallLuck.innerHTML = `
+                <h3 class="overall-title">${overallDescription.title}</h3>
+                <div class="overall-tag">${overallDescription.tag}</div>
+                <p class="overall-desc">${overallDescription.description} 您击败了全国${beatPercent}%的测试者！</p>
+                
+                <div class="sign-details">
+                    <div class="sign-section">
+                        <div class="sign-title"><span>💼</span> 事业运势详解</div>
+                        <div class="sign-content">${overallDescription.details.career}</div>
+                    </div>
+                    
+                    <div class="sign-section">
+                        <div class="sign-title"><span>💰</span> 财富运势详解</div>
+                        <div class="sign-content">${overallDescription.details.wealth}</div>
+                    </div>
+                    
+                    <div class="sign-section">
+                        <div class="sign-title"><span>❤️</span> 感情运势详解</div>
+                        <div class="sign-content">${overallDescription.details.love}</div>
+                    </div>
+                    
+                    <div class="sign-section">
+                        <div class="sign-title"><span>🏃</span> 健康运势详解</div>
+                        <div class="sign-content">${overallDescription.details.health}</div>
+                    </div>
+                    
+                    <div class="sign-section">
+                        <div class="sign-title"><span>💡</span> 马年开运建议</div>
+                        <div class="sign-content">${overallDescription.details.advice}</div>
+                    </div>
+                    
+                    <div class="sign-section">
+                        <div class="sign-title"><span>📅</span> 关键时间点</div>
+                        <ul class="sign-list sign-content">
+                            <li>农历正月：制定全年计划的最佳时机</li>
+                            <li>农历五月：事业发展的关键月份</li>
+                            <li>农历八月：财运最旺，宜投资理财</li>
+                            <li>农历十月：感情运势提升，宜表白求婚</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
             
             // 显示结果区域
             resultContainer.style.display = 'block';
             
             // 滚动到结果区域
-            setTimeout(function() {
+            setTimeout(() => {
                 resultContainer.scrollIntoView({ behavior: 'smooth' });
             }, 300);
         }
 
-        // 显示简单提示
-        function showSimpleAlert(message) {
-            // 移除旧提示
-            var oldAlert = document.querySelector('.simple-alert');
-            if (oldAlert) {
-                document.body.removeChild(oldAlert);
-            }
+        // 更新统计显示
+        function updateStatsDisplay() {
+            totalUsersEl.textContent = statsData.totalUsers.toLocaleString();
+            excellentUsersEl.textContent = statsData.excellentUsers.toLocaleString();
+        }
+
+        // 显示自定义提示
+        function showCustomAlert(message, title = '马年运势测试') {
+            const oldAlert = document.querySelector('.custom-alert');
+            if (oldAlert) oldAlert.remove();
             
-            // 创建新提示
-            var alertBox = document.createElement('div');
-            alertBox.className = 'simple-alert';
-            alertBox.innerHTML = '<div style="margin-bottom:10px;font-size:20px;">🐎</div>' +
-                                '<div>' + message + '</div>' +
-                                '<button onclick="this.parentElement.parentElement.removeChild(this.parentElement)">我知道了</button>';
+            const alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+            alertBox.innerHTML = `
+                <div style="margin-bottom: 20px; font-size: 2rem;">🐎</div>
+                <div style="margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6;">${message.replace(/\n/g, '<br>')}</div>
+                <button onclick="this.parentElement.remove()" style="
+                    padding: 10px 30px;
+                    background: #FFD700;
+                    border: none;
+                    border-radius: 20px;
+                    color: #8B0000;
+                    font-weight: bold;
+                    cursor: pointer;
+                    font-size: 1rem;
+                ">我知道了</button>
+            `;
             
             document.body.appendChild(alertBox);
         }
 
         // 分享功能
-        function shareResult() {
-            var scores = calculateLuck();
-            var totalScore = 0;
-            var scoreCount = 0;
-            for (var dim in scores) {
-                totalScore += scores[dim];
-                scoreCount++;
-            }
-            var averageScore = totalScore / scoreCount;
-            var rating = getRating(averageScore);
-            
-            var shareText = "我刚测了2026马年运势，结果是：" + rating + "！\n" +
-                           "事业：" + scores.career + "分，财富：" + scores.wealth + "分，\n" +
-                           "感情：" + scores.love + "分，健康：" + scores.health + "分\n" +
-                           "你也来测测你的马年运势吧！";
-            
-            // 尝试使用Web Share API
-            if (navigator.share) {
-                navigator.share({
-                    title: '我的2026马年运势测试结果',
-                    text: shareText,
-                    url: window.location.href
-                }).catch(function(error) {
-                    console.log('分享失败:', error);
-                    showSimpleAlert('分享失败，请手动复制以下内容：\n\n' + shareText + '\n\n网址：' + window.location.href);
-                });
-            } else {
-                // 降级方案
-                showSimpleAlert('请手动复制以下内容分享给朋友：\n\n' + shareText + '\n\n测试网址：' + window.location.href);
-            }
+        function setupShare() {
+            shareBtn.addEventListener('click', function() {
+                const scores = calculateLuck();
+                const overallDescription = overallLuckDescriptions.find(desc => desc.condition(scores)) || overallLuckDescriptions[overallLuckDescriptions.length - 1];
+                
+                const shareText = `🐎 2026马年运势测试 🐎\n\n` +
+                                 `我的马年运势：${overallDescription.title}\n` +
+                                 `签位：${overallDescription.tag}\n\n` +
+                                 `📊 详细分析：\n` +
+                                 `事业：${getRatingText(scores.career)}\n` +
+                                 `财富：${getRatingText(scores.wealth)}\n` +
+                                 `感情：${getRatingText(scores.love)}\n` +
+                                 `健康：${getRatingText(scores.health)}\n\n` +
+                                 `快来测测你的马年运势吧！\n` +
+                                 `${window.location.href}`;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: '我的2026马年运势测试结果',
+                        text: shareText,
+                        url: window.location.href
+                    }).catch(() => {
+                        fallbackCopy(shareText);
+                    });
+                } else {
+                    fallbackCopy(shareText);
+                }
+            });
         }
 
-        // 事件监听
-        document.addEventListener('DOMContentLoaded', function() {
-            // 初始化问题
-            initializeQuestions();
+        // 降级复制函数
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
             
-            // 提交按钮事件
-            submitBtn.addEventListener('click', function() {
-                if (!this.disabled) {
-                    displayResults();
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCustomAlert('✅ 运势结果已复制到剪贴板！\n\n您可以粘贴到微信、QQ等聊天软件分享给朋友啦！');
+                } else {
+                    showCustomAlert('❌ 自动复制失败，请手动复制以下文字：\n\n' + shareText);
                 }
-            });
+            } catch (err) {
+                showCustomAlert('❌ 复制出错，请手动复制以下文字：\n\n' + shareText);
+            }
             
-            // 分享按钮事件
-            shareBtn.addEventListener('click', shareResult);
-            
-            // 重新测试按钮事件
+            document.body.removeChild(textArea);
+        }
+
+        // 重新测试
+        function setupRestart() {
             restartBtn.addEventListener('click', function() {
                 // 重置答案
-                for (var i = 0; i < currentAnswers.length; i++) {
-                    currentAnswers[i] = null;
-                }
+                currentAnswers = new Array(questions.length).fill(null);
+                userScores = { career: 0, wealth: 0, love: 0, health: 0 };
                 
                 // 重置UI
-                var options = document.querySelectorAll('.option');
-                for (var j = 0; j < options.length; j++) {
-                    options[j].classList.remove('selected');
-                    options[j].querySelector('input').checked = false;
-                }
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected');
+                    option.querySelector('input').checked = false;
+                });
                 
-                submitBtn.disabled = true;
-                progressFill.style.width = '0%';
+                // 隐藏结果区域
                 resultContainer.style.display = 'none';
                 
+                // 重置提交按钮
+                updateSubmitButton();
+                
+                // 重置进度条
+                progressFill.style.width = '0%';
+                progressText.textContent = '0/15';
+                
                 // 滚动到顶部
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        }
+
+        // 初始化应用
+        function initApp() {
+            // 初始化统计
+            initStats();
             
-            // 错误处理
-            window.addEventListener('error', function(e) {
-                console.error('页面错误:', e.error);
-                // 不显示错误给用户，避免页面崩溃
-            });
-        });
+            // 初始化问题
+            initializeQuestions();
+            updateSubmitButton();
+            
+            // 提交按钮事件
+            submitBtn.addEventListener('click', displayResults);
+            
+            // 设置分享功能
+            setupShare();
+            
+            // 设置重新测试功能
+            setupRestart();
+            
+            // 模拟统计数据随时间变化
+            setInterval(() => {
+                statsData.totalUsers += Math.floor(Math.random() * 5);
+                statsData.excellentUsers += Math.floor(Math.random() * 2);
+                updateStatsDisplay();
+            }, 15000);
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
 </html>
